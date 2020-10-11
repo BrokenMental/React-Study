@@ -16,8 +16,10 @@ class Subject extends Component {
     return (
       //컴포넌트는 꼭 하나의 최상위 태그가 존재
       <header>
-          <h1>WEB</h1>
-          world wide web!
+          {/* this.props.{속성명} 으로 표현 가능 */}
+          <h1>{/*WEB 대신 오른쪽과 같이 사용*/}{this.props.title}</h1>
+          {/*world wide web! 대신 아래와 같이 사용*/}
+          {this.props.sub}
       </header>
     )
   }
@@ -41,8 +43,9 @@ class Content extends Component {
   render(){
     return (
       <article>
-        <h2>HTML</h2>
-        HTML is HyperText Markup Language.
+        {/* App에 생성된 Component에 들어간 속성을 동적으로 꺼내 쓸 수 있음 */}
+        <h2>{this.props.title}</h2>
+        {this.props.desc}
       </article>
     )
   }
@@ -55,9 +58,11 @@ class App extends Component {
       //컴포넌트는 꼭 하나의 최상위 태그가 존재
       <div className="App">
         {/* 위에 생성된 Subject Component */}
-        <Subject></Subject>
+        <Subject title="WEB" sub="world wide web!"></Subject>
+        {/* Subject Component를 다른 속성으로 두개 나타냄 */}
+        <Subject title="React" sub="for UI"></Subject>
         <TOC></TOC>
-        <Content></Content>
+        <Content title="HTML" desc="HTML is HyperText Markup Language."></Content>
       </div>
     );
   }
