@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import TOC from './components/TOC'; //component/TOC 의 TOC 클래스를 가져다 씀
+import Content from './components/Content';
+import Subject from './components/Subject';
 import './App.css';
 
 //프로젝트 폴더 내에서 create-react-app .(현재 디렉토리)
@@ -8,48 +11,6 @@ import './App.css';
 //npx create-react-app {프로젝트명}
 //cd {프로젝트 명}
 //서버 실행 시 : npm start
-
-//Subject라는 Component 생성
-class Subject extends Component {
-  //클래스 내의 함수에는 function 표시가 없어도 됨
-  render(){
-    return (
-      //컴포넌트는 꼭 하나의 최상위 태그가 존재
-      <header>
-          {/* this.props.{속성명} 으로 표현 가능 */}
-          <h1>{/*WEB 대신 오른쪽과 같이 사용*/}{this.props.title}</h1>
-          {/*world wide web! 대신 아래와 같이 사용*/}
-          {this.props.sub}
-      </header>
-    )
-  }
-}
-
-class TOC extends Component {
-  render(){
-    return (
-      <nav>
-            <ul>
-                <li><a href="1.html">HTML</a></li>
-                <li><a href="2.html">CSS</a></li>
-                <li><a href="3.html">JavaScript</a></li>
-            </ul>
-        </nav>
-    )
-  }
-}
-
-class Content extends Component {
-  render(){
-    return (
-      <article>
-        {/* App에 생성된 Component에 들어간 속성을 동적으로 꺼내 쓸 수 있음 */}
-        <h2>{this.props.title}</h2>
-        {this.props.desc}
-      </article>
-    )
-  }
-}
 
 //App이라는 Component 생성
 class App extends Component {
